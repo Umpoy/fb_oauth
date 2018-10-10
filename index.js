@@ -5,6 +5,10 @@ const port = process.env.PORT || 5000;
 const cookieParser = require('cookie-parser');
 const session = require('express-session');
 const morgan = require('morgan');
+const mongoose = require('mongoose');
+
+const configDB = require('./config/database.js');
+mongoose.connect(configDB.url);
 
 app.use(morgan('dev'));
 app.use(cookieParser());
