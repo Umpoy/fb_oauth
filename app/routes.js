@@ -2,7 +2,7 @@ const User = require('./models/user');
 
 module.exports = app => {
     app.get('/', (req, res) => {
-        res.send('Hello World');
+        res.render('index.ejs')
     });
 
     app.get('/:username/:password', (req, res) => {
