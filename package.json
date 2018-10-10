@@ -21,6 +21,7 @@
     "morgan": "^1.9.1",
     "nodemon": "^1.18.4",
     "cookie-parser": "latest",
-    "express-session": "latest"
+    "express-session": "latest",
+    "mongoose": "latest"
   }
 }
