@@ -1,3 +1,4 @@
+const User = require('./models/user');
 
 module.exports = app => {
     app.get('/', (req, res) => {
@@ -5,7 +6,16 @@ module.exports = app => {
     });
 
     app.get('/:username/:password', (req, res) => {
-        req.params.username
-        req.params.password
+        const newUser = new User();
+        newUser.local.username = req.params.username;
+        newUser.local.password = req.params.password;
+        console.log('newUser.local.name: ' + newUser.local.username);
+        console.log('newUser.local.password: ' + newUser.local.password);
+        newUser.save(err => {
+            if (err) {
+                throw err;
+            }
+        });
+        res.send("Success!");
     })
 }
