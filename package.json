@@ -19,6 +19,8 @@
   "dependencies": {
     "express": "^4.16.3",
     "morgan": "^1.9.1",
-    "nodemon": "^1.18.4"
+    "nodemon": "^1.18.4",
+    "cookie-parser": "lastest",
+    "express-session": "lastest"
   }
 }
