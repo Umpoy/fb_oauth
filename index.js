@@ -18,12 +18,14 @@ app.use(session({
     resave: true
 }));
 
-app.use('/', (req, res) => {
-    res.send('Hello World');
-    console.log('req.cookies: ', req.cookies);
-    console.log('=================');
-    console.log('req.session: ', req.session);
-});
+// app.use('/', (req, res) => {
+//     res.send('Hello World');
+//     console.log('req.cookies: ', req.cookies);
+//     console.log('=================');
+//     console.log('req.session: ', req.session);
+// });
+
+require('./app/routes')(app);
 
 app.listen(port, () => {
     console.log('Listening on port ' + port);
