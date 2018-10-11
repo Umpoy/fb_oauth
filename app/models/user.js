@@ -10,7 +10,7 @@ const userScheme = mongoose.Schema({
 
 userScheme.methods.generateHash = password => bcrypt.hashSync(password, bcrypt.genSaltSync(9));
 
-userScheme.methods.validPassword = function (password) {
+userScheme.methods.validPassword = function (password) { // need to fix bug with writing in ES6
     return bcrypt.compareSync(password, this.local.password);
 }
 
