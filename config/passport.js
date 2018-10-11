@@ -30,7 +30,7 @@ module.exports = passport => {
                     } else {
                         const newUser = new User();
                         newUser.local.username = email;
-                        newUser.local.password = password;
+                        newUser.local.password = newUser.generateHash(password);
 
                         newUser.save(err => {
                             if (err) {
@@ -52,16 +52,22 @@ module.exports = passport => {
         (req, email, password, done) => {
             process.nextTick(() => {
                 User.findOne({ 'local.username': email }, (err, user) => {
-                    if (err) {
+                    if (err)
                         return done(err);
+                    if (user) {
+                        return done(null, false, req.flash('signupMessage', 'That email already taken'));
+                    } else {
+                        var newUser = new User();
+                        newUser.local.username = email;
+                        newUser.local.password = newUser.generateHash(password);
+
+                        newUser.save(function (err) {
+                            if (err) {
+                                throw err;
+                            }
+                            return done(null, newUser);
+                        })
                     }
-                    if (!user) {
-                        return done(null, false, req.flash('loginMessage', 'No User found'));
-                    }
-                    if (user.local.password != password) {
-                        return done(null, false, req.flash('loginMessage', 'inavalid password'));
-                    }
-                    return done(null, user);
                 })
             })
         }

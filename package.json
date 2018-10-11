@@ -17,6 +17,7 @@
   },
   "homepage": "https://github.com/Umpoy/fb_oauth#readme",
   "dependencies": {
+    "bcrypt": "^3.0.1",
     "body-parser": "latest",
     "connect-flash": "^0.1.1",
     "cookie-parser": "latest",
