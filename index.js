@@ -22,6 +22,10 @@ app.use(session({
     resave: true
 }));
 
+app.use(passport.initialize());
+app.use(passport.session());
+app.use(flash());
+
 app.set('view engine', 'ejs');
 
 // app.use('/', (req, res) => {
@@ -31,7 +35,7 @@ app.set('view engine', 'ejs');
 //     console.log('req.session: ', req.session);
 // });
 
-require('./app/routes')(app);
+require('./app/routes')(app.passport);
 
 app.listen(port, () => {
     console.log('Listening on port ' + port);
