@@ -12,6 +12,7 @@ const flash = require('connect-flash');
 
 const configDB = require('./config/database.js');
 mongoose.connect(configDB.url);
+require('./config/passport')(passport);
 
 app.use(morgan('dev'));
 app.use(cookieParser());
@@ -35,7 +36,7 @@ app.set('view engine', 'ejs');
 //     console.log('req.session: ', req.session);
 // });
 
-require('./app/routes')(app.passport);
+require('./app/routes')(app, passport);
 
 app.listen(port, () => {
     console.log('Listening on port ' + port);
