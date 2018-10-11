@@ -10,6 +10,10 @@ const userScheme = mongoose.Schema({
 
 userScheme.methods.generateHash = password => bcrypt.hashSync(password, bcrypt.genSaltSync(9));
 
-userScheme.methods.validPassword = password => bcrypt.compareSync(password, this.local.password);
+userScheme.methods.validPassword = function (password) {
+    return bcrypt.compareSync(password, this.local.password);
+}
+
+
 
 module.exports = mongoose.model('User', userScheme);
