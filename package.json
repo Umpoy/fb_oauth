@@ -17,13 +17,16 @@
   },
   "homepage": "https://github.com/Umpoy/fb_oauth#readme",
   "dependencies": {
-    "express": "^4.16.3",
-    "morgan": "^1.9.1",
-    "nodemon": "^1.18.4",
+    "body-parser": "latest",
+    "connect-flash": "^0.1.1",
     "cookie-parser": "latest",
+    "ejs": "latest",
+    "express": "^4.16.3",
     "express-session": "latest",
     "mongoose": "latest",
-    "ejs": "latest",
-    "body-parser": "latest"
+    "morgan": "^1.9.1",
+    "nodemon": "^1.18.4",
+    "passport": "^0.4.0",
+    "passport-local": "^1.0.0"
   }
 }

@@ -7,6 +7,8 @@ const session = require('express-session');
 const morgan = require('morgan');
 const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
+const passport = require('passport');
+const flash = require('connect-flash');
 
 const configDB = require('./config/database.js');
 mongoose.connect(configDB.url);
